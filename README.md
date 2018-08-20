@@ -30,7 +30,9 @@ License
 
 NoRightsReserved :P
 
-***Questions and resolved issues***
+###Questions and resolved issues
 [StackOverflow](https://stackoverflow.com/questions/51924814/mips-bad-address-exception/51925013#51925013)
+
+
 **Free Software, Hell Yeah!**
 
