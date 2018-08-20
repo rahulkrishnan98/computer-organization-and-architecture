@@ -23,7 +23,7 @@ MIPS assembly requires  [QtSpim](http://spimsimulator.sourceforge.net/) or other
 
 
 ### Development
-Want to contribute? Great! If you have any cool MIPS code that you want to share, be my guest. 
+Want to contribute? Great! If you have any cool MIPS code that you want to share, be my guest, send in your valuable PR. 
 
 License
 ----
