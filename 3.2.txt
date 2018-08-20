@@ -1,0 +1,30 @@
+.data
+prompt: .asciiz "Enter the value1"
+pri: .asciiz "Enter the value2"
+check: .asciiz "correctly debugged till here"
+.text
+    main:
+        #User I/O
+        li $v0, 4
+        la $a0, prompt
+        syscall
+        li $v0, 5
+        syscall
+        add $s0, $v0, $zero
+
+        li $v0, 4
+        la $a0, pri
+        syscall
+        li $v0, 5
+        syscall
+        add $s1, $v0, $zero
+
+        jal procedure
+        j finish
+    procedure:
+            add $t1, $s0, $zero
+            add $t2, $s1, $zero
+            add $s0, $t2, $zero
+            add $s1, $t1, $zero
+            jr $ra
+        finish:
