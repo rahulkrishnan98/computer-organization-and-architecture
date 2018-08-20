@@ -1,0 +1,16 @@
+.data
+stringinput: .space 20
+
+.text
+main:
+la $a0, stringinput      #carries address 
+li $a1, 12               #$a0 = address where string to be stored, $a1 = number of characters to read + 1
+
+li $v0, 8               #user input string
+syscall
+
+li $v0, 4              #printing output
+syscall
+
+li $v0, 10            #ending the program
+syscall
