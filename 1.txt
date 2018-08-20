@@ -1,0 +1,27 @@
+    .data
+names:  .word 1, 2, 3, 4
+names2: 
+    .text
+main:
+    addi $t5, $t5, 1
+    addi $t4, $t4, 5
+    add $t6, $t6, $zero
+    add $t7, $t7, $zero
+    la $t0, names
+    la $t2, names2
+loop:
+    add $s0, $t0, $t6
+    add $s1, $t2, $t7
+    lw $t3, 0($s0)
+    sw $t3, 0($s1)
+    addi $t6, $t6, 4
+    addi $t7, $t7, 4
+    li $v0, 1
+    add $a0, $t3, $zero
+    addi $t5, $t5, 1
+    syscall
+    beq $t4, $t5 end
+    j loop
+end:
+    
+    

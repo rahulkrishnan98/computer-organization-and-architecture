@@ -1,0 +1,67 @@
+.data
+    prompt:  .asciiz "Enter n"
+    pri:     .asciiz "Enter integer"
+    message: .asciiz "Largest is"
+    num:     .word 0, 0
+.text
+main: 
+    add $t2, $zero, $zero 
+    li $v0, 4
+    la $a0, prompt
+    syscall
+
+    #getting the n value
+    li $v0, 5
+    syscall
+
+    #storing the result
+    add $t6, $v0, $zero
+    move $t0, $zero
+
+    la $s0, num 
+    ##
+    add $t2, $zero, $zero
+    ##
+    loop:
+        mul $t4, $t2, 4  
+        add $t1, $s0, $t4   
+        
+        #getting the user's numbers
+        li $v0, 4
+        la $a0, pri
+        syscall
+
+        #getting the value
+        li $v0, 5
+        syscall
+        add $t3, $v0, $zero
+        sw $t3, 0($t1) 
+        addi $t2, $t2, 1
+        beq $t2, $t6, big
+        #printing
+        li $v0, 1
+        add $a0, $t3, $zero
+        syscall
+        j loop
+big:
+    add $t2,$zero,$zero
+    lw $s4,0($s0)
+    add $t5, $zero, $s0   #Indexing
+loop2:   
+    beq $t2, $t6, end
+    lw $s5,0($t5)
+    slt $s6,$s5,$s4
+    beq $s6,1,else
+    add $s4,$s5,$zero
+else:    
+    addi $t2, $t2, 1
+    mul $t5,$t2,4
+    add $t5, $t5, $s0
+    j loop2
+end:
+    li $v0, 4
+    la $a0, message
+    syscall
+    li $v0, 4
+    add $a0, $s4, $zero
+    syscall
