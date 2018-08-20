@@ -1,0 +1,20 @@
+.data 
+    num:     .word 1, 2, 3
+.text
+main:
+    la $t1, num
+    lw $t2, 0($t1)
+    add $t3, $zero, $zero
+    loop:
+        beq $t3, 3, end
+        addi $t3, $t3, 1
+        add $t1, $t1, 4
+        lw $t4, 0($t1)
+        slt $t5, $t2, $t4
+        beq $t5, 1, change
+        j end
+    change:
+        move $t2,$t4
+        j loop
+end:
+

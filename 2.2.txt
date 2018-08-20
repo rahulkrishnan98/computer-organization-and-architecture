@@ -1,0 +1,32 @@
+.data
+    prompt: .asciiz "Enter n"
+.text
+    main:
+        li $v0, 4
+        la $a0, prompt
+        syscall
+
+        #getting the n value
+        li $v0, 5
+        syscall
+        jal procedure
+        j finish
+
+    procedure:
+            add $t0, $zero, $v0 # t0= user input
+            addi $t1, $zero, 2 # counter variable
+            add $t2, $zero, $zero
+            addi $t3, $zero, 1
+            loop:
+                ##
+                addi $t4, $t2, 0
+                ##  
+                addi $t2, $t3, 0
+                add $t3, $t3, $t4
+                addi $t1, $t1, 1
+                beq $t0, $t1 end
+                j loop
+            end:
+                jr $ra #returning back to the callee
+    finish:
+            

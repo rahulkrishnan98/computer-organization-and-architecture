@@ -1,0 +1,39 @@
+.data
+num: .asciiz "0123456789ABCDEF"
+destination: .asciiz "0"
+prompt: .asciiz "Starting to copy 0123456789ABCDEF     "
+pri: .asciiz "the value is :: "
+.text
+main:
+    li $v0, 4
+    la $a0, prompt
+    syscall
+    jal stringcpy
+    j finish
+stringcpy:
+        add $sp, $sp, -4
+        sw $s0, 0($sp) #storing value of indexing 'i'
+        add $s0, $zero, $zero #i=0
+        la $a1, num
+        la $a0, destination
+        loop:
+            add $t1, $a1, $s0 #source indexing
+            lb $t2, 0($t1) #loading source[i] to t2
+            add $t3, $a0, $s0 #indexing destination
+            sb $t2, 0($t3)
+
+            beq $t2, $zero,loop2
+            addi $s0, $s0, 1
+            j loop
+        loop2:
+            lw $s0, 0($sp)
+            addi $sp, $sp, 4
+            jr $ra
+finish:
+        #printing the copied string
+        li $v0, 4
+        la $a0, pri
+        syscall
+        la $a0, destination
+        li $v0,4
+        syscall
