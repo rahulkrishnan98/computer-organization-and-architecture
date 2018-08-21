@@ -11,6 +11,23 @@ This repository holds all the code I shall write for my course CSE381 on Compute
 
 MIPS assembly requires  [QtSpim](http://spimsimulator.sourceforge.net/) or other simulators to run. The author has maintained QtSpim for all testing and debugging.
 
+### File Content
+
+
+
+| FileName | Content|
+| ------ | ------ |
+| 1.txt | [Transfering data from Memory](http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html) |
+| 2.txt | [largest number from list](http://logos.cs.uic.edu/366/notes/mips%20quick%20tutorial.htm)
+| 3.txt | [Fibonnaci Numbers](http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html) |
+| 2.1.txt | [Procedure1: Max Number](http://logos.cs.uic.edu/366/notes/mips%20quick%20tutorial.htm)
+| 2.2.txt | [Procedure2: Fibonnaci](http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html) |
+| 2.3.txt | [Procedure3: String copy](http://logos.cs.uic.edu/366/notes/mips%20quick%20tutorial.htm)
+| 3.1.txt | [Recursive Factorial](http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html) |
+| 3.2.txt | [Procedure4: Swap](http://logos.cs.uic.edu/366/notes/mips%20quick%20tutorial.htm)
+| 3.3.txt | [Sorting(will be updated)](http://www.mrc.uidaho.edu/mrc/people/jff/digital/MIPSir.html) |
+
+
 ###  Cheatsheets
 
 
