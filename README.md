@@ -11,6 +11,23 @@ This repository holds all the code I shall write for my course CSE381 on Compute
 
 MIPS assembly requires  [QtSpim](http://spimsimulator.sourceforge.net/) or other simulators to run. The author has maintained QtSpim for all testing and debugging.
 
+### File Content
+
+
+
+| FileName | Content|
+| ------ | ------ |
+| 1.txt | [Transfering data from Memory] |
+| 2.txt | [largest number from list]
+| 3.txt | [Fibonnaci Numbers] |
+| 2.1.txt | [Procedure1: Max Number]
+| 2.2.txt | [Procedure2: Fibonnaci] |
+| 2.3.txt | [Procedure3: String copy]
+| 3.1.txt | [Recursive Factorial] |
+| 3.2.txt | [Procedure4: Swap]
+| 3.3.txt | [Sorting(will be updated)] |
+
+
 ###  Cheatsheets
 
 
