@@ -25,7 +25,7 @@ MIPS assembly requires  [QtSpim](http://spimsimulator.sourceforge.net/) or other
 | 2.3.txt | [Procedure3: String copy]
 | 3.1.txt | [Recursive Factorial] |
 | 3.2.txt | [Procedure4: Swap]
-| 3.3.txt | [Sorting(will be updated)] |
+| 3.3.txt | [Sorting] |
 
 
 ###  Cheatsheets
