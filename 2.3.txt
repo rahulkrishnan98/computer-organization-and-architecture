@@ -11,8 +11,6 @@ main:
     jal stringcpy
     j finish
 stringcpy:
-        add $sp, $sp, -4
-        sw $s0, 0($sp) #storing value of indexing 'i'
         add $s0, $zero, $zero #i=0
         la $a1, num
         la $a0, destination
@@ -26,8 +24,6 @@ stringcpy:
             addi $s0, $s0, 1
             j loop
         loop2:
-            lw $s0, 0($sp)
-            addi $sp, $sp, 4
             jr $ra
 finish:
         #printing the copied string
