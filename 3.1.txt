@@ -9,32 +9,30 @@
         li $v0, 5
         syscall
         add $a0, $v0, $zero
+        addi $a1, $zero, 1  #ans is stored in $a1
         jal fact
         j finish
 
         fact:
-            addi $sp, $sp, -8  #adding two elements (reserve space), since stacks start from higher mem address
+            addi $sp, $sp, -4  #adding an element (reserve space), since stacks start from higher mem address
             sw $ra, 0($sp)
-            sw $a0, 4($sp)
 
             slti $t0, $a0, 1
             beq $t0, $zero, loop
 
-            addi $sp, $sp, 8
-            addi $v0, $zero, 1
-
+            addi $sp, $sp, 4
+            
             jr $ra
 
         loop:
+            mul $a1, $a1, $a0
             addi $a0, $a0, -1
             jal fact    #stores address of the lw instruction and goes to label-->fact
         
-        lw $a0, 4($sp)
         lw $ra, 0($sp)
-        addi $sp, $sp, 8 #deleting 2 elements
+        addi $sp, $sp, 4 #deleting 1 elements
         
-        mul $v0, $v0, $a0
-        jr $ra #until main ra, recursively go through fact(n)=fact(n-1)*n
+        jr $ra #until main ra
         
         finish:
 
