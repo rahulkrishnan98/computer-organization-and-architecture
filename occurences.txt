@@ -1,0 +1,39 @@
+    .data
+arr:  .word 1, 1, 1, 2, 3
+prompt: .asciiz "Count:"
+arr2:
+    .text
+main:
+    la $t0,arr
+    la $s0,arr2
+    add $t1,$zero,$zero
+    add $t2,$zero,$zero
+    add $t3,$zero,5
+    j loop
+outloop:
+    addi $v0,$zero,4
+    la $a0,prompt
+    syscall
+    addi $v0,$zero,1
+    add $a0,$s1,$zero
+    syscall
+loop:    
+    beq $t1,$t3,exit
+    sll $t4,$t1,2
+    add $t2,$t1,$zero
+    addi $t1,$t1,1
+    add $t4,$t0,$t4
+    lw $t5,0($t4)
+    add $s1,$zero,$zero
+inloop:
+    beq $t2,$t3,outloop
+    sll $t6,$t2,2
+    add $t6,$t0,$t6
+    lw $t7,0($t6)
+    bne $t5,$t7,continue
+    addi $s1,$s1,1
+continue:
+    addi $t2,$t2,1
+    j inloop
+exit:
+    
